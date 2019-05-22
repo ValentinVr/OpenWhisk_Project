@@ -4,7 +4,7 @@ Create a Function-as-a-Service (FaaS) environment using OpenWhisk
 
 ## Description
 
-The goal of our project is to create a Fonction-as-a-service (FaaS) environment using OpenWhisk. Moreover, codes written in Java, Python, Node.js and PHP and external resources such as RabbitMQ and MariaDB must be supported by our FaaS environment.
+The goal of this project is to create a Fonction-as-a-service (FaaS) environment using OpenWhisk. Moreover, codes written in Java, Python, Node.js and PHP and external resources such as RabbitMQ and MariaDB must be supported by the FaaS environment.
 
 ## Requirements
 
@@ -12,8 +12,8 @@ To build and run the project, you need to have on your machine :
 
  - VirtualBox 
 	
-	VirtualBox is a virtualization software. It allows to create virtual machines.
-	You need to download VirtualBox on your machine (`https://www.virtualbox.org/`).
+		VirtualBox is a virtualization software. It allows to create virtual machines.
+		You need to download VirtualBox on your machine (`https://www.virtualbox.org/`).
 	
  - Minikube
 	
