@@ -31,6 +31,7 @@ Helm is a tool to simplify the deployment and management of applications on Kube
 		
 The OpenWhisk CLI (wsk) is the Command Line Interface offered by OpenWhisk. It allows to easily create, run and manage OpenWhisk entities.
 	
+	
 
 To obtain the Minikube, Kubetcl, Helm and OpenWhisk CLI (wsk) executables, you can download the GitHub project `https://github.com/ValentinVr/OpenWhisk_Project` and unzip the executables in the corresponding folder. You can also download these executables on Internet.
 		
