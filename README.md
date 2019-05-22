@@ -12,24 +12,24 @@ To build and run the project, you need to have on your machine :
 
  - VirtualBox 
 	
-		VirtualBox is a virtualization software. It allows to create virtual machines.
-		You need to download VirtualBox on your machine (`https://www.virtualbox.org/`).
+VirtualBox is a virtualization software. It allows to create virtual machines.
+You need to download VirtualBox on your machine (`https://www.virtualbox.org/`).
 	
  - Minikube
 	
-	Minikube is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop.
+Minikube is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop.
 
  - Kubectl
 	
-	Kubectl is a command line interface for running commands against Kubernetes clusters.
+Kubectl is a command line interface for running commands against Kubernetes clusters.
 	
  - Helm
 	
-	Helm is a tool to simplify the deployment and management of applications on Kubernetes clusters.
+Helm is a tool to simplify the deployment and management of applications on Kubernetes clusters.
 
  - OpenWhisk CLI (wsk)
 		
-	The OpenWhisk CLI (wsk) is the Command Line Interface offered by OpenWhisk. It allows to easily create, run and manage OpenWhisk entities.
+The OpenWhisk CLI (wsk) is the Command Line Interface offered by OpenWhisk. It allows to easily create, run and manage OpenWhisk entities.
 	
 
 To obtain the Minikube, Kubetcl, Helm and OpenWhisk CLI (wsk) executables, you can download the GitHub project `https://github.com/ValentinVr/OpenWhisk_Project` and unzip the executables in the corresponding folder. You can also download these executables on Internet.
