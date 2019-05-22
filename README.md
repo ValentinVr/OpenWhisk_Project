@@ -42,10 +42,10 @@ To run the project, you need to open a terminal on your machine.
 
 Then, you need to configure the Minikube virtual machine. For this, run the following commands.
 ```
-`minikube config set kubernetes-version v1.10.5`
-`minikube config set cpus 2`
-`minikube config set memory 4096`
-`minikube config set WantUpdateNotification false`
+minikube config set kubernetes-version v1.10.5
+minikube config set cpus 2
+minikube config set memory 4096
+minikube config set WantUpdateNotification false
 ```
 
 Next, you can start Minikube.
@@ -69,9 +69,9 @@ This step take a few seconds. To continue, you must check the tiller-deploy pod 
 `kubectl get pods -n kube-system`
 
 Then, you can run the following command to create a clusterrolebinding.
-
+```
 `kubectl create clusterrolebinding tiller-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default`
-
+```
 Then, you must indicate the Kubernetes worker nodes that should be used to execute user containers by OpenWhisk's invokers.
 
 `kubectl label nodes --all openwhisk-role=invoker`
@@ -90,8 +90,10 @@ If you want to see more information about the OpenWhisk deployment progress, you
 
 When the install-package pod in the openwhisk namespace is completed, you can configure your OpenWhisk CLI (wsk).
 
-`wsk -i property set --apihost 192.168.99.100:31001`
-`wsk -i property set --auth 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP`
+```
+wsk -i property set --apihost 192.168.99.100:31001
+wsk -i property set --auth 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP
+```
 
 Now, you can test your OpenWhisk deployment with the following command.
 
