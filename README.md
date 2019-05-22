@@ -41,11 +41,12 @@ Then, you can simplify accesses to the Minikube, Kubectl, Helm and OpenWhisk CLI
 To run the project, you need to open a terminal on your machine.
 
 Then, you need to configure the Minikube virtual machine. For this, run the following commands.
-
+```
 `minikube config set kubernetes-version v1.10.5`
 `minikube config set cpus 2`
 `minikube config set memory 4096`
 `minikube config set WantUpdateNotification false`
+```
 
 Next, you can start Minikube.
 
