@@ -10,28 +10,31 @@ The goal of our project is to create a Fonction-as-a-service (FaaS) environment 
 
 To build and run the project, you need to have on your machine :
 
-	- VirtualBox ( https://www.virtualbox.org/ )
+ - VirtualBox 
 	
-		VirtualBox is a virtualization software. It allows to create virtual machines.
+	VirtualBox is a virtualization software. It allows to create virtual machines.
+	You need to download VirtualBox on your machine (`https://www.virtualbox.org/`).
 	
-	- Minikube ( https://github.com/kubernetes/minikube/releases/tag/v1.0.1 )
+ - Minikube
 	
-		Minikube is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop.
-	
-	- Kubectl ( https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/windows/amd64/kubectl.exe )
-	
-		Kubectl is a command line interface for running commands against Kubernetes clusters.
-	
-	- Helm ( https://github.com/helm/helm/releases/tag/v2.14.0 )
-	
-		Helm is a tool to simplify the deployment and management of applications on Kubernetes clusters.
-	
-	- OpenWhisk CLI (wsk) ( https://github.com/apache/incubator-openwhisk-cli/releases )
-		
-		The OpenWhisk CLI (wsk) is the Command Line Interface offered by OpenWhisk. It allows to easily create, run and manage OpenWhisk entities.
-		
+	Minikube is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your laptop.
 
-Then, you can simplify accesses to Minikube, Kubectl, Helm and OpenWhisk CLI (wsk) executables by adding binary files in your PATH environment variable.
+ - Kubectl
+	
+	Kubectl is a command line interface for running commands against Kubernetes clusters.
+	
+ - Helm
+	
+	Helm is a tool to simplify the deployment and management of applications on Kubernetes clusters.
+
+ - OpenWhisk CLI (wsk)
+		
+	The OpenWhisk CLI (wsk) is the Command Line Interface offered by OpenWhisk. It allows to easily create, run and manage OpenWhisk entities.
+	
+
+To obtain the Minikube, Kubetcl, Helm and OpenWhisk CLI (wsk) executables, you can download the GitHub project `https://github.com/ValentinVr/OpenWhisk_Project` and unzip the executables in the corresponding folder. You can also download these executables on Internet.
+		
+Then, you can simplify accesses to the Minikube, Kubectl, Helm and OpenWhisk CLI (wsk) executables by adding binary file `OpenWhisk_Project/executables` in your PATH environment variable.
 
 ## Building & Running
 
@@ -72,9 +75,9 @@ Then, you must indicate the Kubernetes worker nodes that should be used to execu
 
 `kubectl label nodes --all openwhisk-role=invoker`
 
-Now, you can deploy OpenWhisk using Helm with the following command.
+Now, you must change directory of your terminal to be in `OpenWhisk_Project/deployment` folder. Then, you can deploy OpenWhisk using Helm with the following command.
 
-`helm install ./helm/openwhisk --namespace=openwhisk --name=isep -f mycluster.yaml`
+`helm install . --namespace=openwhisk --name=isep -f mycluster.yaml`
 
 This step take a few minutes. To continue, you must check the install-package pod in the openwhisk namespace is completed.
 
@@ -84,7 +87,39 @@ If you want to see more information about the OpenWhisk deployment progress, you
 
 `helm status isep`
 
+When the install-package pod in the openwhisk namespace is completed, you can configure your OpenWhisk CLI (wsk).
+
+`wsk -i property set --apihost 192.168.99.100:31001`
+`wsk -i property set --auth 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP`
+
+Now, you can test your OpenWhisk deployment with the following command.
+
+`helm test isep`
+
+If the two tests passed, then your OpenWhisk FaaS environment is correctly deployed.
 
 ## Usage
 
+Now, you are able to use your OpenWhisk FaaS environment.
+
+To test your environment, you can create a simple action using the file `functions/js/test.js`. This file contains a simple node.js function which takes an argument and returns a JSON object.
+
+`wsk -i action create testJS functions/js/test.js`
+
+Then you can check if your action is correctly created.
+
+`wsk -i list`
+
+Normally, your action is visible. Then you can easily invoke your action.
+
+`wsk -i action invoke testJS --param param Thierry --result`
+
+Therefore you see the action result with the given argument.
+
+In the same way, you can create your own actions and then invoke them. Your actions can be created from code written in Java, Pyhton, Node.js, PHP and others languages.
+
+Moreover, you can create rules and triggers to invoke your actions when a given event occurs. These events can used external resources.
+
 ## GitHub repoository
+
+`https://github.com/ValentinVr/OpenWhisk_Project`
